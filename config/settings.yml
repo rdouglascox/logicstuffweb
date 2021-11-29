@@ -25,5 +25,5 @@ ip-from-header: "_env:YESOD_IP_FROM_HEADER:false"
 # mutable-static: false
 # skip-combining: false
 
-copyright: Insert copyright statement here
+copyright: © Ryan Cox 2021
 #analytics: UA-YOURCODE
