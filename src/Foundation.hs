@@ -101,6 +101,12 @@ instance Yesod App where
                     , menuItemRoute = HomeR
                     , menuItemAccessCallback = True
                     }
+                    ,
+                  NavbarLeft $ MenuItem
+                    { menuItemLabel = "problemsets"
+                    , menuItemRoute = ProblemSetsR
+                    , menuItemAccessCallback = True
+                    }
                 ]
 
         let navbarLeftMenuItems = [x | NavbarLeft x <- menuItems]
@@ -174,8 +180,21 @@ instance YesodBreadcrumbs App where
     breadcrumb
         :: Route App  -- ^ The route the user is visiting currently.
         -> Handler (Text, Maybe (Route App))
-    breadcrumb HomeR = return ("Home", Nothing)
-    breadcrumb  _ = return ("home", Nothing)
+    breadcrumb HomeR = return ("home", Nothing)
+    breadcrumb ProblemSetsR = return ("problemsets", Nothing)
+    breadcrumb ProblemSet01R = return ("problemsets/problemset01", Nothing)
+    breadcrumb ProblemSet02R = return ("problemsets/problemset02", Nothing)
+    breadcrumb ProblemSet03R = return ("problemsets/problemset03", Nothing)
+    breadcrumb ProblemSet04R = return ("problemsets/problemset04", Nothing)
+    breadcrumb ProblemSet05R = return ("problemsets/problemset05", Nothing)
+    breadcrumb ProblemSet06R = return ("problemsets/problemset06", Nothing)
+    breadcrumb ProblemSet07R = return ("problemsets/problemset07", Nothing)
+    breadcrumb ProblemSet08R = return ("problemsets/problemset08", Nothing)
+    breadcrumb ProblemSet09R = return ("problemsets/problemset09", Nothing)
+    breadcrumb ProblemSet10R = return ("problemsets/problemset10", Nothing)
+    breadcrumb ProblemSet11R = return ("problemsets/problemset11", Nothing)
+    breadcrumb ProblemSetsAllR = return ("problemsets/problemsetsall", Nothing)
+    breadcrumb  _ = return ("", Nothing)
 
 -- This instance is required to use forms. You can modify renderMessage to
 -- achieve customized and internationalized form validation messages.

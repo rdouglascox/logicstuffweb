@@ -7,61 +7,109 @@ module Handler.Home where
 
 import Import
 import Yesod.Form.Bootstrap3 (BootstrapFormLayout (..), renderBootstrap3)
-import Text.Julius (RawJS (..))
 
--- Define our data that will be used for creating the form.
-data FileForm = FileForm
-    { fileInfo :: FileInfo
-    , fileDescription :: Text
-    }
-
--- This is a handler function for the GET request method on the HomeR
--- resource pattern. All of your resource patterns are defined in
--- config/routes.yesodroutes
---
--- The majority of the code you will write in Yesod lives in these handler
--- functions. You can spread them across multiple files if you are so
--- inclined, or create a single monolithic file.
+-- | welcome and about
 getHomeR :: Handler Html
 getHomeR = do
-    (formWidget, formEnctype) <- generateFormPost sampleForm
-    let submission = Nothing :: Maybe FileForm
-        handlerName = "getHomeR" :: Text
     defaultLayout $ do
-        let (commentFormId, commentTextareaId, commentListId) = commentIds
         aDomId <- newIdent
-        setTitle "Welcome To Yesod!"
+        setTitle "welcome to logicstuff!"
         $(widgetFile "homepage")
 
-postHomeR :: Handler Html
-postHomeR = do
-    ((result, formWidget), formEnctype) <- runFormPost sampleForm
-    let handlerName = "postHomeR" :: Text
-        submission = case result of
-            FormSuccess res -> Just res
-            _ -> Nothing
-
+-- | problemsets main page
+getProblemSetsR :: Handler Html
+getProblemSetsR = do
     defaultLayout $ do
-        let (commentFormId, commentTextareaId, commentListId) = commentIds
-        aDomId <- newIdent
-        setTitle "Welcome To Yesod!"
-        $(widgetFile "homepage")
+        setTitle "logicstuff | problemsets"
+        $(widgetFile "problemsets")
 
-sampleForm :: Form FileForm
-sampleForm = renderBootstrap3 BootstrapBasicForm $ FileForm
-    <$> fileAFormReq "Choose a file"
-    <*> areq textField textSettings Nothing
-    -- Add attributes like the placeholder and CSS classes.
-    where textSettings = FieldSettings
-            { fsLabel = "What's on the file?"
-            , fsTooltip = Nothing
-            , fsId = Nothing
-            , fsName = Nothing
-            , fsAttrs =
-                [ ("class", "form-control")
-                , ("placeholder", "File description")
-                ]
-            }
+-- | problemset01
+getProblemSet01R :: Handler Html
+getProblemSet01R = do
+    defaultLayout $ do
+        setTitle "logicstuff | problemsets/problemset01"
+        $(widgetFile "problemsetscommon")
 
-commentIds :: (Text, Text, Text)
-commentIds = ("js-commentForm", "js-createCommentTextarea", "js-commentList")
+-- | problemsets main page
+getProblemSet02R :: Handler Html
+getProblemSet02R = do
+    defaultLayout $ do
+        setTitle "logicstuff | problemsets/problemset02"
+        $(widgetFile "problemsetscommon")
+
+-- | problemsets main page
+getProblemSet03R :: Handler Html
+getProblemSet03R = do
+    defaultLayout $ do
+        setTitle "logicstuff | problemsets/problemset03"
+        $(widgetFile "problemsetscommon")
+
+-- | problemsets main page
+getProblemSet04R :: Handler Html
+getProblemSet04R = do
+    defaultLayout $ do
+        setTitle "logicstuff | problemsets/problemset04"
+        $(widgetFile "problemsetscommon")
+
+-- | problemsets main page
+getProblemSet05R :: Handler Html
+getProblemSet05R = do
+    defaultLayout $ do
+        setTitle "logicstuff | problemsets/problemset05"
+        $(widgetFile "problemsetscommon")
+
+-- | problemsets main page
+getProblemSet06R :: Handler Html
+getProblemSet06R = do
+    defaultLayout $ do
+        setTitle "logicstuff | problemsets/problemset06"
+        $(widgetFile "problemsetscommon")
+
+-- | problemsets main page
+getProblemSet07R :: Handler Html
+getProblemSet07R = do
+    defaultLayout $ do
+        setTitle "logicstuff | problemsets/problemset07"
+        $(widgetFile "problemsetscommon")
+
+-- | problemsets main page
+getProblemSet08R :: Handler Html
+getProblemSet08R = do
+    defaultLayout $ do
+        setTitle "logicstuff | problemsets/problemset08"
+        $(widgetFile "problemsetscommon")
+
+-- | problemsets main page
+getProblemSet09R :: Handler Html
+getProblemSet09R = do
+    defaultLayout $ do
+        setTitle "logicstuff | problemsets/problemset09"
+        $(widgetFile "problemsetscommon")
+
+-- | problemsets main page
+getProblemSet10R :: Handler Html
+getProblemSet10R = do
+    defaultLayout $ do
+        setTitle "logicstuff | problemsets/problemset10"
+        $(widgetFile "problemsetscommon")
+
+-- | problemsets main page
+getProblemSet11R :: Handler Html
+getProblemSet11R = do
+    defaultLayout $ do
+        setTitle "logicstuff | problemsets/problemset11"
+        $(widgetFile "problemsetscommon")
+
+-- | problemsets main page
+getProblemSetsAllR :: Handler Html
+getProblemSetsAllR = do
+    defaultLayout $ do
+        setTitle "logicstuff | problemsets/problemsetsall"
+        $(widgetFile "problemsetscommon")
+
+-- | trees main page
+getTreesR :: Handler Html
+getTreesR = do
+    defaultLayout $ do
+        setTitle "logicstuff | trees"
+        $(widgetFile "trees")

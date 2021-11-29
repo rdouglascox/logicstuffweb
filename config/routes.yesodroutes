@@ -6,6 +6,18 @@
 /favicon.ico FaviconR GET
 /robots.txt RobotsR GET
 
-/ HomeR GET POST
+/ HomeR GET
 
-/comments CommentR POST
+/problemsets ProblemSetsR GET
+/problemsets/problemset01 ProblemSet01R GET
+/problemsets/problemset02 ProblemSet02R GET
+/problemsets/problemset03 ProblemSet03R GET
+/problemsets/problemset04 ProblemSet04R GET
+/problemsets/problemset05 ProblemSet05R GET
+/problemsets/problemset06 ProblemSet06R GET
+/problemsets/problemset07 ProblemSet07R GET
+/problemsets/problemset08 ProblemSet08R GET
+/problemsets/problemset09 ProblemSet09R GET
+/problemsets/problemset010 ProblemSet10R GET
+/problemsets/problemset011 ProblemSet11R GET
+/problemsets/problemsetsall ProblemSetsAllR GET
