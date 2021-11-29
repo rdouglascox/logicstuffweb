@@ -19,7 +19,7 @@
                     
                     <p> here's an overview of what you will find on the website.
                     
-                    <p> <tt>problemsets</tt>: coming up with problem sets for undergraduate logic courses is a tedious matter. will the truth tree for this set of propositions be too big? how can I ensure that the students will have to apply the existential rule? etc. problemsets removes the tedium of coming up with problem sets by automatically generating appropriately curated question and answer pairs.
+                    <p> <a href=@{ProblemSetsR}>problemsets</a>: coming up with problem sets for undergraduate logic courses is a tedious matter. will the truth tree for this set of propositions be too big? how can I ensure that the students will have to apply the existential rule? etc. problemsets removes the tedium of coming up with problem sets by automatically generating appropriately curated question and answer pairs.
 
                     <p> <tt>randomstuff</tt>: wouldn't it be nice to be able to generate a random set of propositions which you knew would make a tree that wouldn't be too big or too small, or would involve the application of the existential rule in its construction? or to generate a random proposition with n connectives, etc? well now you can. check out randomstuff to see what kind of random stuff you can generate.
 
@@ -27,7 +27,7 @@
 
                     <p> <tt>tables</tt>: produce a truth table from a set of PL propositions. (available for a limited time only).
 
-                    <p> <tt>trees</tt>: produce a truth tree from a set of PL (propositional logic) or GPLI (first-order logic with identity / classical logic) propositions. (available for a limited time only).
+                    <p> <a href=@{TreesR}>trees</a>: produce a truth tree from a set of PL (propositional logic) or GPLI (first-order logic with identity / classical logic) propositions. (available for a limited time only).
 
                     <p> <tt>cl-tools</tt>: cl-tools consists of several command-line tools for generating problem sets, generating truth trees, truth tables, random propositions, and other things. these tools provide the 'backends' for most of the stuff you will find on this website. you will need to know a little bit about unix-like (MacOS and Linux) command-line environments in order to download and install these tools.
 

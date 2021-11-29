@@ -113,3 +113,10 @@ getTreesR = do
     defaultLayout $ do
         setTitle "logicstuff | trees"
         $(widgetFile "trees")
+
+-- | trees main page
+postTreesR :: Handler Html
+postTreesR = do
+    defaultLayout $ do
+        setTitle "logicstuff | trees"
+        $(widgetFile "trees")
