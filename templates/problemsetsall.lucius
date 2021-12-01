@@ -1,0 +1,7 @@
+.table-bordered td {padding: 3px;
+    text-align: center;
+    font-weight: normal;}
+
+.table-bordered th {padding: 3px;
+    text-align: center;
+    font-weight: normal;}

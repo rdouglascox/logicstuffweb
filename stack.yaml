@@ -42,6 +42,10 @@ packages:
 #
 # extra-deps: []
 
+extra-deps:
+  - ../problemsets/
+  - SVGFonts-1.8.0.1@sha256:66a29cebd825bdac6ed1da83bd3a310ba6e8db5d63d6511015d644b9a8ec48b8,3019
+
 # Override default flag values for local packages and extra-deps
 # flags: {}
 
@@ -66,7 +70,7 @@ packages:
 # Allow a newer minor version of GHC than the snapshot specifies
 # compiler-check: newer-minor
 
-nix:
-  enable: true
-  pure: false
-  packages: [zlib]
+# nix:
+#   enable: true
+#   pure: false
+#   packages: [zlib]

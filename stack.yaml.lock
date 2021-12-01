@@ -3,7 +3,14 @@
 # For more information, please see the documentation at:
 #   https://docs.haskellstack.org/en/stable/lock_files
 
-packages: []
+packages:
+- completed:
+    hackage: SVGFonts-1.8.0.1@sha256:66a29cebd825bdac6ed1da83bd3a310ba6e8db5d63d6511015d644b9a8ec48b8,3019
+    pantry-tree:
+      size: 1506
+      sha256: 51fbfeff7f01beeaba78985d9416b579f72f29aa266c1af7fe0d09bde0850266
+  original:
+    hackage: SVGFonts-1.8.0.1@sha256:66a29cebd825bdac6ed1da83bd3a310ba6e8db5d63d6511015d644b9a8ec48b8,3019
 snapshots:
 - completed:
     size: 534126
