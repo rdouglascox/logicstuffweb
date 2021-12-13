@@ -200,7 +200,6 @@ instance YesodBreadcrumbs App where
     breadcrumb ProblemSet09R = return ("problemsets/problemset09", Nothing)
     breadcrumb ProblemSet10R = return ("problemsets/problemset10", Nothing)
     breadcrumb ProblemSet11R = return ("problemsets/problemset11", Nothing)
-    breadcrumb ProblemSetsAllR = return ("problemsets/problemsetsall", Nothing)
     breadcrumb  _ = return ("", Nothing)
 
 -- This instance is required to use forms. You can modify renderMessage to

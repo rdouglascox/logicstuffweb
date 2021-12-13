@@ -23,10 +23,10 @@ import MakePS.MakePS11
 
 -- imports for pl trees form
 import Forms.PLtrees
+import ClassyPrelude.Yesod (checkBoxField, FieldSettings (FieldSettings))
+import ClassyPrelude (Bool(True))
 
-newtype PropForm = PropForm   -- my own thingy for getting propositions
-    { propInput :: Text
-    }
+
 
 
 -- | welcome and about
@@ -132,28 +132,18 @@ getProblemSet11R = do
         setTitle "logicstuff | problemsets/problemset11"
         $(widgetFile "problemsetscommon")
 
--- | problemsets main page
-getProblemSetsAllR :: Handler Html
-getProblemSetsAllR = do
-    defaultLayout $ do
-        ps1 <- liftIO mkps01html
-        ps2 <- liftIO mkps02html
-        ps3 <- liftIO mkps03html
-        ps4 <- liftIO mkps04html
-        ps5 <- liftIO mkps05html
-        ps6 <- liftIO mkps06html
-        ps7 <- liftIO mkps07html
-        ps8 <- liftIO mkps08html
-        ps9 <- liftIO mkps09html
-        ps10 <- liftIO mkps10html
-        ps11 <- liftIO mkps11html
-        setTitle "logicstuff | problemsets/problemsetsall"
-        $(widgetFile "problemsetsall")
 
+-- | here's is how we do forms in yesod
+
+data PropForm = PropForm   -- my own thingy for getting propositions
+    { propInput :: Text
+    , isArg :: Bool
+    }
 
 propForm :: Form PropForm
 propForm = renderBootstrap3 BootstrapBasicForm $ PropForm
     <$> areq textField textSettings Nothing
+    <*> areq checkBoxField boxSettings Nothing
     -- Add attributes like the placeholder and CSS classes.
     where textSettings = FieldSettings
             { fsLabel = "Enter a list of propositions here."
@@ -164,6 +154,13 @@ propForm = renderBootstrap3 BootstrapBasicForm $ PropForm
                 [ ("class", "form-control")
                 , ("placeholder", "e.g. (A->B),(CvD),((E&G)<->D)")
                 ]
+            }
+          boxSettings = FieldSettings
+            { fsLabel = "Is the input an argument? "
+            , fsTooltip = Nothing
+            , fsId = Nothing
+            , fsName = Nothing
+            , fsAttrs = []
             }
 
 -- let's give my form a page of its own
@@ -184,7 +181,17 @@ postTreesR = do
     defaultLayout $ do
             let mytreehtml = case submission' of
                     Nothing -> "" 
-                    Just (PropForm prop) -> prop
-            mytree <- liftIO (treeformHTML mytreehtml)
-            setTitle "logicstuff | truth trees"
-            $(widgetFile "treesresult")
+                    Just (PropForm prop _) -> prop
+            let arg = case submission' of
+                      Nothing -> False
+                      Just (PropForm _ True) -> True
+                      Just (PropForm _ False) -> False
+            if arg 
+                then do
+                mytree <- liftIO (treeformHTMLa mytreehtml)
+                setTitle "logicstuff | truth trees"
+                $(widgetFile "treesresult")
+                else do
+                mytree <- liftIO (treeformHTML mytreehtml)
+                setTitle "logicstuff | truth trees"
+                $(widgetFile "treesresult")
