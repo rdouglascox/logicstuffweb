@@ -38,7 +38,8 @@ dependencies:
 - case-insensitive
 - wai
 - foreign-store
-- problemsets
+- problemsets  # local dependency
+- firstorderlogic # local dependency
 - random
 - blaze-html
 

@@ -119,6 +119,12 @@ instance Yesod App where
                     , menuItemRoute = GPLITreesR
                     , menuItemAccessCallback = True
                     }
+                    ,
+                    NavbarLeft $ MenuItem
+                    { menuItemLabel = "conversions"
+                    , menuItemRoute = ConversionsR
+                    , menuItemAccessCallback = True
+                    }
                 ]
 
         let navbarLeftMenuItems = [x | NavbarLeft x <- menuItems]

@@ -24,8 +24,12 @@ import MakePS.MakePS11
 -- imports for pl trees form
 import qualified Forms.PLtrees as PL
 import qualified Forms.GPLItrees as GPLI
+import qualified Conversions.Conversions as CV
+
+
 import ClassyPrelude.Yesod (checkBoxField, FieldSettings (FieldSettings))
 import ClassyPrelude (Bool(True))
+import qualified Conversions.Conversions as CV
 
 
 
@@ -230,3 +234,86 @@ postGPLITreesR = do
                 mytree <- liftIO (GPLI.treeformHTML mytreehtml)
                 setTitle "logicstuff | gpli truth trees"
                 $(widgetFile "gplitreesresult")
+
+-- conversions 
+
+getConversionsR :: Handler Html
+getConversionsR = do
+    (formWidget', formEnctype') <- generateFormPost conversionForm   -- my own form
+    defaultLayout $ do
+        setTitle "logicstuff | conversions"
+        $(widgetFile "conversions") 
+
+postConversionsR :: Handler Html
+postConversionsR = do
+    ((result', formWidget'), formEnctype') <- runFormPost conversionForm
+    let submission' = case result' of
+            FormSuccess res -> Just res
+            _ -> Nothing
+    defaultLayout $ do
+            let mytreehtml = case submission' of
+                    Nothing -> "" 
+                    Just (ConversionForm prop _ _ _ _) -> prop
+            let arg = case submission' of
+                      Nothing -> [False]
+                      Just (ConversionForm _ n c d p) -> (n,c,d,p)
+            let mytree = CV.conversions mytreehtml arg
+            setTitle "logicstuff | conversions"
+            $(widgetFile "conversionsresult")
+
+-- form for conversions 
+
+data ConversionForm = ConversionForm   -- my own thingy for getting propositions
+    { conversionpropInput :: Text
+    , donnf :: Bool
+    , docnf :: Bool
+    , dodnf :: Bool 
+    , dopnf :: Bool
+    }
+
+conversionForm :: Form ConversionForm
+conversionForm = renderBootstrap3 BootstrapBasicForm $ ConversionForm
+    <$> areq textField textSettings Nothing
+    <*> areq checkBoxField boxSettings1 Nothing
+    <*> areq checkBoxField boxSettings2 Nothing
+    <*> areq checkBoxField boxSettings3 Nothing
+    <*> areq checkBoxField boxSettings4 Nothing
+    -- Add attributes like the placeholder and CSS classes.
+    where textSettings = FieldSettings
+            { fsLabel = "Enter a proposition here."
+            , fsTooltip = Nothing
+            , fsId = Nothing
+            , fsName = Nothing
+            , fsAttrs =
+                [ ("class", "form-control")
+                , ("placeholder", "e.g. @x(Ax->Bx)")
+                ]
+            }
+          boxSettings1 = FieldSettings
+            { fsLabel = "Negation Normal Form"
+            , fsTooltip = Nothing
+            , fsId = Nothing
+            , fsName = Nothing
+            , fsAttrs = []
+            }
+          boxSettings2 = FieldSettings
+            { fsLabel = "Conjunction Normal Form"
+            , fsTooltip = Nothing
+            , fsId = Nothing
+            , fsName = Nothing
+            , fsAttrs = []
+            }
+          boxSettings3 = FieldSettings
+            { fsLabel = "Disjunction Normal Form"
+            , fsTooltip = Nothing
+            , fsId = Nothing
+            , fsName = Nothing
+            , fsAttrs = []
+            }
+          boxSettings4 = FieldSettings
+            { fsLabel = "Prenex Normal Form"
+            , fsTooltip = Nothing
+            , fsId = Nothing
+            , fsName = Nothing
+            , fsAttrs = []
+            }
