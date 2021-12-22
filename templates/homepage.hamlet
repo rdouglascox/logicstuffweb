@@ -27,7 +27,9 @@
 
                     <p> <tt>tables</tt>: produce a truth table from a set of PL propositions. (available for a limited time only).
 
-                    <p> <a href=@{PLTreesR}>trees</a>: produce a truth tree from a set of PL (propositional logic) or GPLI (first-order logic with identity / classical logic) propositions. (available for a limited time only).
+                    <p> <a href=@{PLTreesR}>pltrees</a>: produce a truth tree from a set of PL (propositional logic) propositions.
+
+                    <p> <a href=@{GPLITreesR}>gplitrees</a>:  produce a truth tree from a set of GPLI (first-order logic with identity / classical logic / predicate logic with identity) propositions.
 
                     <p> <tt>cl-tools</tt>: cl-tools consists of several command-line tools for generating problem sets, generating truth trees, truth tables, random propositions, and other things. these tools provide the 'backends' for most of the stuff you will find on this website. you will need to know a little bit about unix-like (MacOS and Linux) command-line environments in order to download and install these tools.
 

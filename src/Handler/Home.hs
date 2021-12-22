@@ -22,7 +22,8 @@ import MakePS.MakePS10
 import MakePS.MakePS11
 
 -- imports for pl trees form
-import Forms.PLtrees
+import qualified Forms.PLtrees as PL
+import qualified Forms.GPLItrees as GPLI
 import ClassyPrelude.Yesod (checkBoxField, FieldSettings (FieldSettings))
 import ClassyPrelude (Bool(True))
 
@@ -170,7 +171,7 @@ getPLTreesR = do
     (formWidget', formEnctype') <- generateFormPost propForm   -- my own form
     defaultLayout $ do
         setTitle "logicstuff | truth trees"
-        $(widgetFile "trees") 
+        $(widgetFile "pltrees") 
 
 postPLTreesR :: Handler Html
 postPLTreesR = do
@@ -188,10 +189,44 @@ postPLTreesR = do
                       Just (PropForm _ False) -> False
             if arg 
                 then do
-                mytree <- liftIO (treeformHTMLa mytreehtml)
+                mytree <- liftIO (PL.treeformHTMLa mytreehtml)
                 setTitle "logicstuff | truth trees"
-                $(widgetFile "treesresult")
+                $(widgetFile "pltreesresult")
                 else do
-                mytree <- liftIO (treeformHTML mytreehtml)
+                mytree <- liftIO (PL.treeformHTML mytreehtml)
                 setTitle "logicstuff | truth trees"
-                $(widgetFile "treesresult")
+                $(widgetFile "pltreesresult")
+
+
+-- gpli treees
+
+getGPLITreesR :: Handler Html
+getGPLITreesR = do
+    (formWidget', formEnctype') <- generateFormPost propForm   -- my own form
+    defaultLayout $ do
+        setTitle "logicstuff | gpli truth trees"
+        $(widgetFile "gplitrees") 
+
+postGPLITreesR :: Handler Html
+postGPLITreesR = do
+    ((result', formWidget'), formEnctype') <- runFormPost propForm
+    let submission' = case result' of
+            FormSuccess res -> Just res
+            _ -> Nothing
+    defaultLayout $ do
+            let mytreehtml = case submission' of
+                    Nothing -> "" 
+                    Just (PropForm prop _) -> prop
+            let arg = case submission' of
+                      Nothing -> False
+                      Just (PropForm _ True) -> True
+                      Just (PropForm _ False) -> False
+            if arg 
+                then do
+                mytree <- liftIO (GPLI.treeformHTMLa mytreehtml)
+                setTitle "logicstuff | gpli truth trees"
+                $(widgetFile "gplitreesresult")
+                else do
+                mytree <- liftIO (GPLI.treeformHTML mytreehtml)
+                setTitle "logicstuff | gpli truth trees"
+                $(widgetFile "gplitreesresult")

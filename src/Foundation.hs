@@ -113,6 +113,12 @@ instance Yesod App where
                     , menuItemRoute = PLTreesR
                     , menuItemAccessCallback = True
                     }
+                    ,
+                    NavbarLeft $ MenuItem
+                    { menuItemLabel = "gplitrees"
+                    , menuItemRoute = GPLITreesR
+                    , menuItemAccessCallback = True
+                    }
                 ]
 
         let navbarLeftMenuItems = [x | NavbarLeft x <- menuItems]
@@ -188,6 +194,7 @@ instance YesodBreadcrumbs App where
         -> Handler (Text, Maybe (Route App))
     breadcrumb HomeR = return ("home", Nothing)
     breadcrumb PLTreesR = return ("pltrees", Nothing)
+    breadcrumb GPLITreesR = return ("gplitrees", Nothing)
     breadcrumb ProblemSetsR = return ("problemsets", Nothing)
     breadcrumb ProblemSet01R = return ("problemsets/problemset01", Nothing)
     breadcrumb ProblemSet02R = return ("problemsets/problemset02", Nothing)
