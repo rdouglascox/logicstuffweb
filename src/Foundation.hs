@@ -109,8 +109,8 @@ instance Yesod App where
                     }
                     ,
                   NavbarLeft $ MenuItem
-                    { menuItemLabel = "trees"
-                    , menuItemRoute = TreesR
+                    { menuItemLabel = "pltrees"
+                    , menuItemRoute = PLTreesR
                     , menuItemAccessCallback = True
                     }
                 ]
@@ -187,7 +187,7 @@ instance YesodBreadcrumbs App where
         :: Route App  -- ^ The route the user is visiting currently.
         -> Handler (Text, Maybe (Route App))
     breadcrumb HomeR = return ("home", Nothing)
-    breadcrumb TreesR = return ("trees", Nothing)
+    breadcrumb PLTreesR = return ("pltrees", Nothing)
     breadcrumb ProblemSetsR = return ("problemsets", Nothing)
     breadcrumb ProblemSet01R = return ("problemsets/problemset01", Nothing)
     breadcrumb ProblemSet02R = return ("problemsets/problemset02", Nothing)

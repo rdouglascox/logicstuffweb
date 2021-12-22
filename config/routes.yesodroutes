@@ -21,4 +21,4 @@
 /problemsets/problemset010 ProblemSet10R GET
 /problemsets/problemset011 ProblemSet11R GET
 
-/trees TreesR GET POST
+/trees PLTreesR GET POST

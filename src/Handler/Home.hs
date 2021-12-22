@@ -165,15 +165,15 @@ propForm = renderBootstrap3 BootstrapBasicForm $ PropForm
 
 -- let's give my form a page of its own
 
-getTreesR :: Handler Html
-getTreesR = do
+getPLTreesR :: Handler Html
+getPLTreesR = do
     (formWidget', formEnctype') <- generateFormPost propForm   -- my own form
     defaultLayout $ do
         setTitle "logicstuff | truth trees"
         $(widgetFile "trees") 
 
-postTreesR :: Handler Html
-postTreesR = do
+postPLTreesR :: Handler Html
+postPLTreesR = do
     ((result', formWidget'), formEnctype') <- runFormPost propForm
     let submission' = case result' of
             FormSuccess res -> Just res
