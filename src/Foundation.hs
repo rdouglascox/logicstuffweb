@@ -125,6 +125,12 @@ instance Yesod App where
                     , menuItemRoute = ConversionsR
                     , menuItemAccessCallback = True
                     }
+                    ,
+                    NavbarLeft $ MenuItem
+                    { menuItemLabel = "dp"
+                    , menuItemRoute = DPR
+                    , menuItemAccessCallback = True
+                    }
                 ]
 
         let navbarLeftMenuItems = [x | NavbarLeft x <- menuItems]
@@ -202,6 +208,7 @@ instance YesodBreadcrumbs App where
     breadcrumb PLTreesR = return ("pltrees", Nothing)
     breadcrumb GPLITreesR = return ("gplitrees", Nothing)
     breadcrumb ProblemSetsR = return ("problemsets", Nothing)
+    breadcrumb DPR = return ("dp", Nothing)
     breadcrumb ProblemSet01R = return ("problemsets/problemset01", Nothing)
     breadcrumb ProblemSet02R = return ("problemsets/problemset02", Nothing)
     breadcrumb ProblemSet03R = return ("problemsets/problemset03", Nothing)

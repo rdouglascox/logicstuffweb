@@ -25,7 +25,7 @@ import MakePS.MakePS11
 import qualified Forms.PLtrees as PL
 import qualified Forms.GPLItrees as GPLI
 import qualified Conversions.Conversions as CV
-
+import qualified DPform.DPform as DPform
 
 import ClassyPrelude.Yesod (checkBoxField, FieldSettings (FieldSettings))
 import ClassyPrelude (Bool(True))
@@ -235,6 +235,39 @@ postGPLITreesR = do
                 setTitle "logicstuff | gpli truth trees"
                 $(widgetFile "gplitreesresult")
 
+-- dp
+
+getDPR :: Handler Html
+getDPR = do
+    (formWidget', formEnctype') <- generateFormPost propForm   -- my own form
+    defaultLayout $ do
+        setTitle "logicstuff | dp"
+        $(widgetFile "dp") 
+
+postDPR :: Handler Html
+postDPR = do
+    ((result', formWidget'), formEnctype') <- runFormPost propForm
+    let submission' = case result' of
+            FormSuccess res -> Just res
+            _ -> Nothing
+    defaultLayout $ do
+            let mytreehtml = case submission' of
+                    Nothing -> "" 
+                    Just (PropForm prop _) -> prop
+            let arg = case submission' of
+                      Nothing -> False
+                      Just (PropForm _ True) -> True
+                      Just (PropForm _ False) -> False
+            if arg 
+                then do
+                let mytree = DPform.dpformHTMLa mytreehtml
+                setTitle "logicstuff | dp"
+                $(widgetFile "dpresult")
+                else do
+                let mytree = DPform.dpformHTMLa  mytreehtml
+                setTitle "logicstuff | gpli truth trees"
+                $(widgetFile "dpresult")
+
 -- conversions 
 
 getConversionsR :: Handler Html
@@ -255,9 +288,9 @@ postConversionsR = do
                     Nothing -> "" 
                     Just (ConversionForm prop _ _ _ _) -> prop
             let arg = case submission' of
-                      Nothing -> [False]
+                      Nothing -> (False,False,False,False)
                       Just (ConversionForm _ n c d p) -> (n,c,d,p)
-            let mytree = CV.conversions mytreehtml arg
+            let mytree = CV.safeconversions mytreehtml arg
             setTitle "logicstuff | conversions"
             $(widgetFile "conversionsresult")
 
@@ -290,28 +323,28 @@ conversionForm = renderBootstrap3 BootstrapBasicForm $ ConversionForm
                 ]
             }
           boxSettings1 = FieldSettings
-            { fsLabel = "Negation Normal Form"
+            { fsLabel = "Negation Normal Form "
             , fsTooltip = Nothing
             , fsId = Nothing
             , fsName = Nothing
             , fsAttrs = []
             }
           boxSettings2 = FieldSettings
-            { fsLabel = "Conjunction Normal Form"
+            { fsLabel = "Conjunctive Normal Form "
             , fsTooltip = Nothing
             , fsId = Nothing
             , fsName = Nothing
             , fsAttrs = []
             }
           boxSettings3 = FieldSettings
-            { fsLabel = "Disjunction Normal Form"
+            { fsLabel = "Disjunctive Normal Form "
             , fsTooltip = Nothing
             , fsId = Nothing
             , fsName = Nothing
             , fsAttrs = []
             }
           boxSettings4 = FieldSettings
-            { fsLabel = "Prenex Normal Form"
+            { fsLabel = "Prenex Normal Form "
             , fsTooltip = Nothing
             , fsId = Nothing
             , fsName = Nothing

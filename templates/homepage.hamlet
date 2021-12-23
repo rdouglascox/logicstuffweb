@@ -23,7 +23,7 @@
 
                     <p> <tt>randomstuff</tt>: wouldn't it be nice to be able to generate a random set of propositions which you knew would make a tree that wouldn't be too big or too small, or would involve the application of the existential rule in its construction? or to generate a random proposition with n connectives, etc? well now you can. check out randomstuff to see what kind of random stuff you can generate.
 
-                    <p> <tt>conversions</tt>: convert a proposition into negation normal form, conjunctive normal form, or disjunctive normal form.
+                    <p> <a href=@{ConversionsR}>conversions</a>:: convert a proposition into negation normal form, conjunctive normal form, or disjunctive normal form.
 
                     <p> <tt>tables</tt>: produce a truth table from a set of PL propositions. (available for a limited time only).
 
