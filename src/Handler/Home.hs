@@ -264,7 +264,7 @@ postDPR = do
                 setTitle "logicstuff | dp"
                 $(widgetFile "dpresult")
                 else do
-                let mytree = DPform.dpformHTMLa  mytreehtml
+                let mytree = DPform.dpformHTML  mytreehtml
                 setTitle "logicstuff | gpli truth trees"
                 $(widgetFile "dpresult")
 
