@@ -43,8 +43,12 @@ packages:
 # extra-deps: []
 
 extra-deps:
-  - ../problemsets/
-  - ../firstorderlogic/
+  - git: https://github.com/rdouglascox/problemsets
+    commit: 47084d964838a283942e2b4e5a3c5c199efc119d
+  - git: https://github.com/rdouglascox/firstorderlogic
+    commit: d6b3fe09f5db4539011764677207609d490c9485
+#  - ../problemsets/
+#  - ../firstorderlogic/
   - SVGFonts-1.8.0.1@sha256:66a29cebd825bdac6ed1da83bd3a310ba6e8db5d63d6511015d644b9a8ec48b8,3019
 
 # Override default flag values for local packages and extra-deps
