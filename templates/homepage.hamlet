@@ -15,32 +15,33 @@
                 <div .page-header>
                     <h1 #start>welcome
                     <p>
-                        welcome to logicstuff online. here you'll find lots of fun logic stuff—stuff for learning and teaching logic. click on either the links below or the tabs above to get started, or read more about logicstuff online below.
+                        welcome to logicstuff online. here's an overview of what you will find on the website.
+                        
+                        
+                        <div>
+
+                        <ul>
                     
-                    <p> here's an overview of what you will find on the website.
-                    
-                    <p> <a href=@{ProblemSetsR}>problemsets</a>: coming up with problem sets for undergraduate logic courses is a tedious matter. will the truth tree for this set of propositions be too big? how can I ensure that the students will have to apply the existential rule? etc. problemsets removes the tedium of coming up with problem sets by automatically generating appropriately curated question and answer pairs.
+                                           
+                        <li> <p> <a href=@{ProblemSetsR}>problemsets</a>: generate random problem sets for teaching undergraduate logic.
 
-                    <p> <tt>randomstuff</tt>: wouldn't it be nice to be able to generate a random set of propositions which you knew would make a tree that wouldn't be too big or too small, or would involve the application of the existential rule in its construction? or to generate a random proposition with n connectives, etc? well now you can. check out randomstuff to see what kind of random stuff you can generate.
+                        <li> <p> <a href=@{HomeR}>tables</a>: generate truth tables from formulas of PL (propositional logic).
 
-                    <p> <a href=@{ConversionsR}>conversions</a>:: convert a proposition into negation normal form, conjunctive normal form, or disjunctive normal form.
+                        <li> <p> <a href=@{PLTreesR}>pltrees</a>: generate truth trees from formulas of PL (propositional logic).
 
-                    <p> <tt>tables</tt>: produce a truth table from a set of PL propositions. (available for a limited time only).
+                        <li> <p> <a href=@{GPLITreesR}>gplitrees</a>: generate truth trees from formulas of GPLI (general predicate logic with identity).
 
-                    <p> <a href=@{PLTreesR}>pltrees</a>: produce a truth tree from a set of PL (propositional logic) propositions.
+                        <li> <p> <a href=@{HomeR}>models</a>: evaluate a GPLI formula in a model.
 
-                    <p> <a href=@{GPLITreesR}>gplitrees</a>:  produce a truth tree from a set of GPLI (first-order logic with identity / classical logic / predicate logic with identity) propositions.
+                        <li> <p> <a href=@{ConversionsR}>conversions</a>: convert a proposition into negation normal form, conjunctive normal form, disjunctive normal form, or prenex normal form.
 
-                    <p> <tt>cl-tools</tt>: cl-tools consists of several command-line tools for generating problem sets, generating truth trees, truth tables, random propositions, and other things. these tools provide the 'backends' for most of the stuff you will find on this website. you will need to know a little bit about unix-like (MacOS and Linux) command-line environments in order to download and install these tools.
+                        <li> <p> <a href=@{HomeR}>random</a>: generate a random proposition.
 
-                    <h1> more about logicstuff
+                        <li> <p> <a href=@{HomeR}>tools</a>: command line logic tools.
 
-                    <p> i started writing the command-line tools that form the 'backend' of logic stuff online back in 2019 as a way of teaching myself how to program. back then, I had been tutoring first-year logic for a while and had just lectured in first-year logic for the first time. i thought to myself, hey, wouldn't it be cool to be able to automate some of the more tedious aspects of teaching logic, and I had been meaning to teach myself to program for years, but just couldn't find a project that I could focus my efforts on. well, here's the outcome of those efforts over three or four years of evenings—or scraps of evenings that I managed to claw back from my children.
+                    <br>
+                    <hr>
 
-                    <p> i can't recall exactly how I stumbled upon <a href="https://www.haskell.org/">Haskell</a> as my language of choice for implementing the command line tools. i think I choose it partly because it had a reputation for being difficult, but also because it looked familiar. in certain respects it looked like the lambda-calculus, and I was familiar with the lambda-calculus. also, it didn't involve any tedious low-level manipulations of variables, pointers, and whathaveyou that other programing language involve. learning certain aspects of Haskell has certainly been a challenge, but now it is my natural 'first-language' and everything else seems foreign now.
 
-                    <p> logicstuff online uses the Haskell-based <a href="http://www.yesodweb.com">Yesod</a> web-framework. it too has a reputation for being difficult. but it was the first web-framework that I could work out how to integrate my 'backend' scripts into. web development is a nightmare.
 
-                    <h1> a warning
-
-                    <p> oh, and one final thing. logicstuff online is very much still in development. although something like problemsets can already be used to produce questions for problem sets, it cannot yet be relied on to produce correct answers, especially to translation questions. almost everything on this website needs more thorough testing. but testing takes time and energy. neither of which do I have much of. that said, feedback is very much welcome. if you spot a problem, let me know: <a href="mailto:ryan.cox@sydney.edu.au">ryan.cox@sydney.edu.au</a>
+                    <p> feeback on the website is welcome. if you spot a problem, let me know: <a href="mailto:ryan.cox@sydney.edu.au">ryan.cox@sydney.edu.au</a>
