@@ -32,7 +32,7 @@ import ClassyPrelude.Yesod (checkBoxField, FieldSettings (FieldSettings))
 import ClassyPrelude (Bool(True))
 import qualified Conversions.Conversions as CV
 
-
+import Yesod.Markdown
 
 
 -- | welcome and about
@@ -185,7 +185,7 @@ propForm = renderBootstrap3 BootstrapBasicForm $ PropForm
             , fsName = Nothing
             , fsAttrs =
                 [ ("class", "form-control")
-                , ("placeholder", "e.g. (A->B),(CvD),((E&G)<->D)")
+                , ("placeholder", "e.g. (A->B),(CvD),((E&G)<->D), or  @x(Ax->Bx)")
                 ]
             }
           boxSettings = FieldSettings

@@ -23,17 +23,17 @@
                         <ul>
                     
                                            
-                        <li> <p> <a href=@{ProblemSetsR}>problemsets</a>: generate random problem sets for teaching undergraduate logic.
+                        <li> <a href=@{ProblemSetsR}>problemsets</a>: generate random problem sets for teaching undergraduate logic.
 
-                        <li> <p> <a href=@{HomeR}>tables</a>: generate truth tables from formulas of PL (propositional logic).
+                        <li> <a href=@{HomeR}>tables</a>: generate truth tables from formulas of PL (propositional logic).
 
-                        <li> <p> <a href=@{PLTreesR}>pltrees</a>: generate truth trees from formulas of PL (propositional logic).
+                        <li> <a href=@{PLTreesR}>pltrees</a>: generate truth trees from formulas of PL (propositional logic).
 
-                        <li> <p> <a href=@{GPLITreesR}>gplitrees</a>: generate truth trees from formulas of GPLI (general predicate logic with identity).
+                        <li> <a href=@{GPLITreesR}>gplitrees</a>: generate truth trees from formulas of GPLI (general predicate logic with identity).
 
-                        <li> <p> <a href=@{ConversionsR}>conversions</a>: convert a proposition into negation, conjunctive, disjunctive, or prenex normal form.
+                        <li> <a href=@{ConversionsR}>conversions</a>: convert a proposition into negation, conjunctive, disjunctive, or prenex normal form.
 
-                        <li> <p> <a href=@{HomeR}>tools</a>: command line logic tools.
+                        <li> <a href=@{HomeR}>tools</a>: command line logic tools.
 
                     <br>
                     <hr>

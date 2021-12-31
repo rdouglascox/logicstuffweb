@@ -7,9 +7,9 @@
 /robots.txt RobotsR GET
 
 / HomeR GET
-/ AboutR GET
-/ ToolsR GET
-/ HelpR GET
+/about AboutR GET
+/tools ToolsR GET
+/help HelpR GET
 
 /problemsets ProblemSetsR GET
 /problemsets/problemset01 ProblemSet01R GET

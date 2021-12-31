@@ -1,11 +1,3 @@
-<div .masthead>
-    <div .container>
-        <div .row>
-            <h1 .header>
-                logicstuff
-            <h2>
-                logicstuff online
-
 <div .container>
     <!-- 
         ================================================== -->
@@ -15,29 +7,13 @@
                 <div .page-header>
                     <h1 #start>help
                     <p>
-                        welcome to logicstuff online. here's an overview of what you will find on the website.
-                        
-                        
-                        <div>
 
-                        <ul>
+                    input for logical formulas is as follows.
+
+                    <h2> PL 
+
                     
-                                           
-                        <li> <p> <a href=@{ProblemSetsR}>problemsets</a>: generate random problem sets for teaching undergraduate logic.
 
-                        <li> <p> <a href=@{HomeR}>tables</a>: generate truth tables from formulas of PL (propositional logic).
+                    <h2> GPLI
+                    
 
-                        <li> <p> <a href=@{PLTreesR}>pltrees</a>: generate truth trees from formulas of PL (propositional logic).
-
-                        <li> <p> <a href=@{GPLITreesR}>gplitrees</a>: generate truth trees from formulas of GPLI (general predicate logic with identity).
-
-                        <li> <p> <a href=@{ConversionsR}>conversions</a>: convert a proposition into negation, conjunctive, disjunctive, or prenex normal form.
-
-                        <li> <p> <a href=@{HomeR}>tools</a>: command line logic tools.
-
-                    <br>
-                    <hr>
-
-
-
-                    <p> feeback on the website is welcome. if you spot a problem, let me know: <a href="mailto:ryan.cox@sydney.edu.au">ryan.cox@sydney.edu.au</a>

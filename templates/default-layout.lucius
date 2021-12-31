@@ -72,6 +72,6 @@
     margin-bottom: 40px;
 }
 
-li {line-height: 1.1em;}
+li {line-height: 1.4em;}
 
 a {color: #F80;}
