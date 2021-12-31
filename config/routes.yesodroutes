@@ -7,6 +7,9 @@
 /robots.txt RobotsR GET
 
 / HomeR GET
+/ AboutR GET
+/ ToolsR GET
+/ HelpR GET
 
 /problemsets ProblemSetsR GET
 /problemsets/problemset01 ProblemSet01R GET
@@ -22,6 +25,7 @@
 /problemsets/problemset011 ProblemSet11R GET
 
 /pltrees PLTreesR GET POST
+/pltables PLTablesR GET POST
 /gplitrees GPLITreesR GET POST
 /conversions ConversionsR GET POST
 /dp DPR GET POST

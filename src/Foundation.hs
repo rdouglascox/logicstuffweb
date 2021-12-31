@@ -109,6 +109,12 @@ instance Yesod App where
                     }
                     ,
                   NavbarLeft $ MenuItem
+                    { menuItemLabel = "tables"
+                    , menuItemRoute = PLTablesR
+                    , menuItemAccessCallback = True
+                    }
+                    ,
+                  NavbarLeft $ MenuItem
                     { menuItemLabel = "pltrees"
                     , menuItemRoute = PLTreesR
                     , menuItemAccessCallback = True
@@ -127,8 +133,20 @@ instance Yesod App where
                     }
                     ,
                     NavbarLeft $ MenuItem
-                    { menuItemLabel = "dp"
-                    , menuItemRoute = DPR
+                    { menuItemLabel = "tools"
+                    , menuItemRoute = ToolsR
+                    , menuItemAccessCallback = True
+                    }
+                    ,
+                    NavbarLeft $ MenuItem
+                    { menuItemLabel = "help"
+                    , menuItemRoute = HelpR
+                    , menuItemAccessCallback = True
+                    }
+                    ,
+                    NavbarLeft $ MenuItem
+                    { menuItemLabel = "about"
+                    , menuItemRoute = AboutR
                     , menuItemAccessCallback = True
                     }
                 ]
@@ -205,7 +223,11 @@ instance YesodBreadcrumbs App where
         :: Route App  -- ^ The route the user is visiting currently.
         -> Handler (Text, Maybe (Route App))
     breadcrumb HomeR = return ("home", Nothing)
+    breadcrumb ToolsR = return ("tools", Nothing)
+    breadcrumb AboutR = return ("about", Nothing)
+    breadcrumb HelpR = return ("help", Nothing)
     breadcrumb PLTreesR = return ("pltrees", Nothing)
+    breadcrumb PLTablesR = return ("pltables", Nothing)
     breadcrumb GPLITreesR = return ("gplitrees", Nothing)
     breadcrumb ProblemSetsR = return ("problemsets", Nothing)
     breadcrumb DPR = return ("dp", Nothing)

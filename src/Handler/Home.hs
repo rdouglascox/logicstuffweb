@@ -24,6 +24,7 @@ import MakePS.MakePS11
 -- imports for pl trees form
 import qualified Forms.PLtrees as PL
 import qualified Forms.GPLItrees as GPLI
+import qualified Forms.PLtables as PLT
 import qualified Conversions.Conversions as CV
 import qualified DPform.DPform as DPform
 
@@ -41,6 +42,33 @@ getHomeR = do
         aDomId <- newIdent
         setTitle "welcome to logicstuff!"
         $(widgetFile "homepage")
+
+-- | about 
+
+getAboutR :: Handler Html
+getAboutR = do
+    defaultLayout $ do
+        aDomId <- newIdent
+        setTitle "about logicstuff"
+        $(widgetFile "about")
+
+-- | tools
+
+getToolsR :: Handler Html
+getToolsR = do
+    defaultLayout $ do
+        aDomId <- newIdent
+        setTitle "logic tools"
+        $(widgetFile "tools")
+
+-- | help
+
+getHelpR :: Handler Html
+getHelpR = do
+    defaultLayout $ do
+        aDomId <- newIdent
+        setTitle "help"
+        $(widgetFile "help")
 
 -- | problemsets main page
 getProblemSetsR :: Handler Html
@@ -200,6 +228,35 @@ postPLTreesR = do
                 mytree <- liftIO (PL.treeformHTML mytreehtml)
                 setTitle "logicstuff | truth trees"
                 $(widgetFile "pltreesresult")
+
+-- pl tables 
+
+getPLTablesR :: Handler Html
+getPLTablesR = do
+    (formWidget', formEnctype') <- generateFormPost propForm   -- my own form
+    defaultLayout $ do
+        setTitle "logicstuff | truth tables"
+        $(widgetFile "pltables") 
+
+postPLTablesR :: Handler Html
+postPLTablesR = do
+    ((result', formWidget'), formEnctype') <- runFormPost propForm
+    let submission' = case result' of
+            FormSuccess res -> Just res
+            _ -> Nothing
+    defaultLayout $ do
+            let mytreehtml = case submission' of
+                    Nothing -> "" 
+                    Just (PropForm prop _) -> prop
+            let arg = case submission' of
+                      Nothing -> False
+                      Just (PropForm _ True) -> True
+                      Just (PropForm _ False) -> False
+            let mytable = PLT.tableformHTML mytreehtml
+            setTitle "logicstuff | truth tables"
+            $(widgetFile "pltablesresult")
+
+
 
 
 -- gpli treees
