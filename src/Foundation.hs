@@ -137,12 +137,12 @@ instance Yesod App where
                     , menuItemRoute = ToolsR
                     , menuItemAccessCallback = True
                     }
-                    ,
-                    NavbarLeft $ MenuItem
-                    { menuItemLabel = "help"
-                    , menuItemRoute = HelpR
-                    , menuItemAccessCallback = True
-                    }
+                    -- ,
+                    -- NavbarLeft $ MenuItem
+                    -- { menuItemLabel = "help"
+                    -- , menuItemRoute = HelpR
+                    -- , menuItemAccessCallback = True
+                    -- }
                     ,
                     NavbarLeft $ MenuItem
                     { menuItemLabel = "about"

@@ -32,8 +32,8 @@ import ClassyPrelude.Yesod (checkBoxField, FieldSettings (FieldSettings))
 import ClassyPrelude (Bool(True))
 import qualified Conversions.Conversions as CV
 
-import Yesod.Markdown
-
+import Text.Blaze.Html       (preEscapedToHtml)
+import Text.Shakespeare.Text (stextFile)
 
 -- | welcome and about
 getHomeR :: Handler Html
@@ -59,7 +59,7 @@ getToolsR = do
     defaultLayout $ do
         aDomId <- newIdent
         setTitle "logic tools"
-        $(widgetFile "tools")
+        toWidget . preEscapedToHtml $ $(stextFile "templates/tools.html")
 
 -- | help
 
